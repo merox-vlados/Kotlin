@@ -1,5 +1,11 @@
 package kot
 
+
+
 fun main() {
-    println("Hello world!")
+    val a: String? = null;
+    val b: String? = "3456";
+    val c: String? = "";
+    val result: Int = (a?.length?:0) + (b?.length ?: 0) + (c?.length ?: 0);
+    println(result)
 }
