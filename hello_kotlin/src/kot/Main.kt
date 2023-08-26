@@ -3,19 +3,15 @@ package kot
 
 
 fun main() {
+    val array = arrayOfNulls<Int?>(301);
+    for((index, i) in (300..600).withIndex()) {
+        array[index] = i
+    }
 
-
-//    var count = 600
-//    val food = if( count > 500) {
-//        count -= 500
-//        "Пицца"
-//    } else if (count > 300) {
-//        count -= 300
-//       "Шаурма"
-//    } else {
-//        count -= 30
-//       "Доширак"
-//    }
-//    println("Вы можете позволить себе купить следующий продукт: $food")
-
+    for((index, i) in (600 downTo  300).withIndex()) {
+        array[index] = i
+        if(i % 5 == 0) {
+            println(array[index])
+        }
+    }
 }

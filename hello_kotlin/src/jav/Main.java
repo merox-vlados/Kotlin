@@ -1,8 +1,34 @@
 package jav;
 
 public class Main {
-    private static String name;
+
     public static void main(String[] args) {
-        System.out.println(name.length());
+        String nameOfMonth = "Март";
+        String season;
+        switch (nameOfMonth) {
+            case "Декабрь":
+            case "Январь":
+            case "Февраль":
+                season = "Зима";
+                break;
+            case "Март":
+            case "Апрель":
+            case "Май":
+                season = "Весна";
+                break;
+            case "Июнь":
+            case "Июль":
+            case "Август":
+                season = "Лето";
+                break;
+            case "Сентябрь":
+            case "Октябрь":
+            case "Ноябрь":
+                season = "Осень";
+                break;
+            default:
+                season = "Не найдено!";
+        }
+        System.out.println(season);
     }
 }
