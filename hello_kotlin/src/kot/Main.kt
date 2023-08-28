@@ -3,15 +3,26 @@ package kot
 
 
 fun main() {
-    val array = arrayOfNulls<Int?>(301);
-    for((index, i) in (300..600).withIndex()) {
-        array[index] = i
+    val numbers = mutableListOf<Int>(5,8,12,-2,6,5)
+    val result = sort(8,-6,5,88)
+    for(i in result) {
+       println(i)
     }
 
-    for((index, i) in (600 downTo  300).withIndex()) {
-        array[index] = i
-        if(i % 5 == 0) {
-            println(array[index])
+}
+
+fun sort(numbers : MutableList<Int>): List<Int> {
+    for(i in 1 until numbers.size) {
+        for(j in numbers.size - 1 downTo i) {
+            if(numbers[j] < numbers[j - 1]) {
+                val temp = numbers[j]
+                numbers[j] = numbers[j -1]
+                numbers[j-1] = temp
+            }
         }
     }
+    return numbers
 }
+
+fun sort(numbers: Array<Int>) = kot.sort(numbers.toMutableList())
+fun sort(vararg numbers: Int) = kot.sort(numbers.toMutableList())
