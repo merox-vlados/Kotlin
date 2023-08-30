@@ -9,7 +9,7 @@ fun main() {
     name("Vlad")
     val sort: (Array<Int>) -> Array<Int> = {
         for(i in it.size - 2 downTo 0) {
-            for(j in 0..1) {
+            for(j in 0..i) {
                 if(it[j] < it[j+1]) {
                     val temp = it[j]
                     it[j] = it[j + 1]
