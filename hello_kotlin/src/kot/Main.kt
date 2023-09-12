@@ -1,21 +1,33 @@
 package kot
 
+import kotlin.random.Random
 
 
 fun main() {
-    val listOfNumbers = mutableListOf<Int>()
-    for(i in 0..99) {
-        listOfNumbers.add(i)
+
+    val array = mutableListOf<Int>()
+    for(i in 0..1000) {
+        array.add((Math.random() * 1000).toInt())
     }
-    val listOfEvenNumbers = listOfNumbers.filter {it % 2 == 0}
-    for(i in listOfEvenNumbers) {
+
+
+    val newArray = array
+        .filter { it % 3 == 0 || it % 5 == 0 }
+        .map { it * it }
+        .sortedDescending()
+        .map { "\"$it\"" }
+
+
+    for(i in newArray) {
         println(i)
     }
 
-    val listOfNames = mutableListOf<String>("Арина","Оксана", "Катя", "Мария", "Агнесса")
-    val listOfEvenNames = listOfNames.filter { it.startsWith("А") }
-    for(i in listOfEvenNames) {
-        println(i)
-    }
+
+//    val array = arrayOf(8,10, -6,45,51)
+//    array.
+//    val sortedArray = array.sortedDescending()
+//    for(i in sortedArray) {
+//        println(i)
+//    }
 }
 
