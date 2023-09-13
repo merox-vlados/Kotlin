@@ -1,33 +1,15 @@
 package kot
 
-import kotlin.random.Random
-
 
 fun main() {
-
-    val array = mutableListOf<Int>()
-    for(i in 0..1000) {
-        array.add((Math.random() * 1000).toInt())
+    val array = generateSequence ("Сотрудник №1") {
+        val index = it.substring(11).toInt()
+        "Сотрудник №${index+1}"
     }
+    val listOfFirst100 = array.take(100)
 
-
-    val newArray = array
-        .filter { it % 3 == 0 || it % 5 == 0 }
-        .map { it * it }
-        .sortedDescending()
-        .map { "\"$it\"" }
-
-
-    for(i in newArray) {
-        println(i)
+    for(employee in listOfFirst100) {
+        println(employee)
     }
-
-
-//    val array = arrayOf(8,10, -6,45,51)
-//    array.
-//    val sortedArray = array.sortedDescending()
-//    for(i in sortedArray) {
-//        println(i)
-//    }
 }
 
