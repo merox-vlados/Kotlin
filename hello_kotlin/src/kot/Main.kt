@@ -2,32 +2,25 @@ package kot
 
 
 fun main() {
-
-    val array = mutableListOf<String>(
-        "Годенко Владислав",
-        "Ляшко Родион",
-        "Гаджиев Рамин",
-        "Черепанов Родион",
-        "Зяблицкий Максим")
-    val arrayOfLastNames = array.map{it.substringBefore(" ")}
-    val arrayOfNames = array.map{it.substringAfter(" ")}
-    val users = arrayOfLastNames.zip(arrayOfNames)
-    for(user in users) {
-        println("${user.first} ${user.second}")
-    }
+    val data = mapOf(
+        "file1" to listOf(15,20,45,15,12),
+        "file2" to listOf(35,-20,45,15,12),
+        "file3" to listOf(15,40,45,15,72)
+    )
+    val average = data.filter { it.value.all { it >= 0 } }.flatMap { it.value }.average()
+    println(average)
 
 
+//    val revenueByWeek = listOf(
+//        listOf(8,6,5,1,2),
+//        listOf(4,7,5,8,2),
+//        listOf(8,7,5,1,2),
+//        listOf(8,5,5,1,2)
+//    )
+//    val total = revenueByWeek.flatten()
+//
+//    val average = total.average()
+//    println(average)
 
-
-//    val names = mutableListOf<String>()
-//    val phones = mutableListOf<Long>()
-//    for(i in 0..1000) {
-//        names.add("Имя$i")
-//        phones.add(79_000_000_000 + (Math.random() * 1_000_000_000).toLong())
-//    }
-//    val users = names.zip(phones)
-//    for(user in users) {
-//        println("Имя: ${user.first} Телефон: ${user.second}")
-//    }
 }
 
