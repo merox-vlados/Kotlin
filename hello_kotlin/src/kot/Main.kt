@@ -3,6 +3,26 @@ package kot
 
 fun main() {
 
+    val list = (0..100).toList()
+    listModify(list) {
+        println(it.sum())
+    }
+
+}
+
+inline fun listModify(list: List<Int>, operator: (List<Int>) -> Unit) {
+    operator(list)
+}
+
+
+
+//fun modifyString(string: String, modify: (String) -> String) : String {
+//    return modify(string)
+//}
+
+
+
+
 
 //    val list = mutableListOf<Int>()
 //    with(list) {
@@ -16,8 +36,6 @@ fun main() {
 //        println(first())
 //        println(last())
 //    }
-
-}
 
 
 
