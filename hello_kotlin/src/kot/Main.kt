@@ -4,20 +4,25 @@ package kot
 
 
 fun main() {
-    val obj = mutableMapOf<String, String>()
-
-    with(obj) {
-        keys
-        values
-    }
-}
-
-inline fun<T, R> myWith(obj: T, operation: T.() -> R): R {
-    return obj.operation()
+    val user = User()
+    user.name = null
+    user.age = 15
+    println("Имя: ${user.name} Возраст: ${user.age}")
 }
 
 
 
+
+//val obj = mutableMapOf<String, String>()
+//
+//with(obj) {
+//    keys
+//    values
+//}
+
+//inline fun<T, R> myWith(obj: T, operation: T.() -> R): R {
+//    return obj.operation()
+//}
 
 
 //fun Int.isPrimeNumber(): Boolean {
