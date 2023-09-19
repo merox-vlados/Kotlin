@@ -1,5 +1,7 @@
 package jav.Address;
 
+import java.util.Objects;
+
 public class Address {
     private String city;
     private String street;
@@ -34,15 +36,39 @@ public class Address {
     public void setNumberOfHouse(int numberOfHouse) {
         this.numberOfHouse = numberOfHouse;
     }
+//
+//    @Override
+//    public boolean equals(Object obj) {
+//        if(this == obj) {
+//            return true;
+//        }
+//        if(hashCode() != obj.hashCode()) {
+//            return false;
+//        }
+//        if (obj instanceof Address) {
+//            Address address = (Address) obj;
+//            return this.city.equals(address.city) && this.street.equals(address.street) && this.numberOfHouse == address.numberOfHouse;
+//        } else {
+//            return false;
+//        }
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return city.hashCode() + street.hashCode() + numberOfHouse;
+//    }
+
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj instanceof Address) {
-            Address address = (Address) obj;
-            return this.city.equals(address.city) && this.street.equals(address.street) && this.numberOfHouse == address.numberOfHouse;
-        } else {
-            return false;
-        }
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Address address = (Address) o;
+        return numberOfHouse == address.numberOfHouse && Objects.equals(city, address.city) && Objects.equals(street, address.street);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(city, street, numberOfHouse);
+    }
 }
