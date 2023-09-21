@@ -4,6 +4,16 @@ class MyArrayList<T> : MyList<T> {
 
     var array = arrayOfNulls<Any>(10)
     var size = 0
+
+    companion object {
+        fun<E> myListOf(vararg elements: E) : MyArrayList<E> {
+            var list = MyArrayList<E>()
+            for( element in elements) {
+                list.add(element)
+            }
+            return list
+        }
+    }
     override fun get(index: Int): T {
         if (index in 0 until size) {
             array[index]?.let {
