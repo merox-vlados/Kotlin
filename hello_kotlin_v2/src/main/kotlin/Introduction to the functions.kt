@@ -11,21 +11,32 @@ fun main() {
 //    println(sum(1,2,34,5))
 }
 
-
-
-
 fun sort(numbers: MutableList<Int>): List<Int> {
-    for(i in 0 until numbers.size - 1) {
-        for(j in 0 until numbers.size - i - 1) {
-            if(numbers[j] > numbers[j+1]) {
+    for(i in 1 until numbers.size ) {
+        for(j in numbers.size - 1 downTo i) {
+            if(numbers[j] < numbers[j-1]) {
                 var temp = numbers[j]
-                numbers[j] = numbers[j+1]
-                numbers[j+1] = temp
+                numbers[j] = numbers[j-1]
+                numbers[j-1] = temp
             }
         }
     }
     return numbers.toList()
 }
+
+
+//fun sort(numbers: MutableList<Int>): List<Int> {
+//    for(i in 0 until numbers.size - 1) {
+//        for(j in 0 until numbers.size - i - 1) {
+//            if(numbers[j] > numbers[j+1]) {
+//                var temp = numbers[j]
+//                numbers[j] = numbers[j+1]
+//                numbers[j+1] = temp
+//            }
+//        }
+//    }
+//    return numbers.toList()
+//}
 
 fun sort(numbers: Array<Int>) = sort(numbers.toMutableList())
 fun sort(vararg numbers: Int) = sort(numbers.toMutableList())
