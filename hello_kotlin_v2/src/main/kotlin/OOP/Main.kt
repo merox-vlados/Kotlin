@@ -1,8 +1,8 @@
 package OOP
 
 fun main() {
-    val user = User()
-    user.name = null
-    user.age = -15
-    println("Name: ${user.name}, age: ${user.age}")
+    val Russia = Country(population = 100_000)
+    println(Russia.name)
+    println(Russia.population)
+
 }
